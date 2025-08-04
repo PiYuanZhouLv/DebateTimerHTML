@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>辩论赛：高中生谈恋爱是利大于弊还是弊大于利？</title>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --an-dur: 0.5s;
+            --blue: hsl(216, 83%, 54%);
+            --red: hsl(346, 83%, 54%);
+        }
+
+        #left {
+            /* animation-name: slideFromLeft;
+                animation-duration: var(--an-dur);
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards; */
+            position: absolute;
+            background: linear-gradient(to left, #FFF0, #FFF0 20%, var(--red) 20%, var(--red));
+        }
+
+        /* @keyframes slideFromLeft {
+                from {
+                    left: -50vw;
+                }
+                to {
+                    left: 0vw;
+                }
+            } */
+        #right {
+            /* animation-name: slideFromRight;
+                animation-duration: var(--an-dur);
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards; */
+            position: absolute;
+            background: linear-gradient(to right, #FFF0, #FFF0 20%, var(--blue) 20%, var(--blue));
+        }
+
+        /* @keyframes slideFromRight {
+                from {
+                    right: -50vw;
+                }
+                to {
+                    right: 0vw;
+                }
+            } */
+        #left::after,
+        #right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        #left::after {
+            right: -25vw;
+            left: 50vw;
+            background: var(--red);
+            transform: translateX(-25vw) skewX(-15deg);
+        }
+
+        #right::after {
+            right: 50vw;
+            left: -25vw;
+            background: var(--blue);
+            transform: translateX(25vw) skewX(-15deg);
+        }
+
+        #left>*,
+        #right>* {
+            position: relative;
+            z-index: 20;
+        }
+
+        @keyframes light {
+            0% {
+                text-shadow: 0 0 0vh currentColor;
+            }
+
+            25% {
+                text-shadow: 0 0 0vh currentColor;
+            }
+
+            50% {
+                text-shadow: 0 0 3vh currentColor;
+            }
+
+            75% {
+                text-shadow: 0 0 0vh currentColor;
+            }
+
+            100% {
+                text-shadow: 0 0 0vh currentColor;
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body style="overflow: hidden; font-family: 'LXGW WenKai'; cursor: default;">
+    <main style="text-align: center;">
+        <div id="event-big"
+            style="color: black; background-color: white; border-radius: 2vh; width: max-content; padding: 5vh; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute; z-index: 100; word-break: keep-all; font-size: 20vh; opacity: 0%;">
+        </div>
+        <div id="intro"
+            style="z-index: 15; backdrop-filter: blur(10px); width: 100vw; height: 100vh; position: absolute; top:100%;left:0;">
+            <div
+                style="padding: 2vh; border: 0.5vh solid gray; border-radius: 2vh; background-color: white; width: min-content; position: absolute; font-size: 15vh; left:15%; top: 50%; transform: translate(-50%, -50%);">
+                赛<br>程<br>安<br>排</div>
+            <div
+                style="font-size: 5vh; border: 0.5vh solid gray; position: absolute; top: 50%; right:35%; transform: translate(50%, -50%); background-color: white; border-radius: 2vh; padding: 2vh; width: 60vw;">
+                <div>
+                    <p style="background-color: hsla(216, 83%, 54%, 0.2);">立论陈词</p>
+                    <p style="background-color: hsla(346, 83%, 54%, 0.2);">攻辩</p>
+                    <p style="background-color: hsla(216, 83%, 54%, 0.2);">攻辩小结</p>
+                    <p style="background-color: hsla(346, 83%, 54%, 0.2);">自由辩论</p>
+                    <p style="background-color: hsla(216, 83%, 54%, 0.2);">总结陈词</p>
+                    <p style="background-color: hsla(346, 83%, 54%, 0.2);">观众提问</p>
+                    <p style="background-color: hsla(216, 83%, 54%, 0.2);">评委点评</p>
+                    <p style="background-color: hsla(346, 83%, 54%, 0.2);">颁奖</p>
+                </div>
+            </div>
+        </div>
+        <div id="vol"
+            style="background-color: white; font-size: 5vh; left: 50%; top: 80%; transform: translate(-50%, -50%); opacity: 0%; position: absolute; z-index: 1000; border-radius: 0.5vh; padding: 0.5vh;">
+        </div>
+        <div id="title-big"
+            style="color: black; background-color: white; border-radius: 2vh; width: max-content; padding: 5vh; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute; z-index: 90; word-break: keep-all; font-size: max(5vh, min(10vh, calc(calc(100vw - 35vh) / 17))); opacity: 0%;">
+            高中生谈恋爱<br>
+            是<span id="red-light"
+                style="color: var(--red); font-size: max(7.5vh, min(15vh, calc(calc(100vw - 35vh) / 17 * 1.5))); animation: light 3s linear 0s infinite;">利大于弊</span>？
+            还是<span id="blue-light"
+                style="color: var(--blue); font-size: max(7.5vh, min(15vh, calc(calc(100vw - 35vh) / 17 * 1.5))); animation: light 3s linear 1.5s infinite;">弊大于利</span>？
+        </div>
+        <div id="headline"
+            style="color: black; background-color: white; border-style: solid; border-color: white gray gray gray; border-width: 0 0.3vh 0.3vh 0.3vh; border-bottom-left-radius: 2vh; border-bottom-right-radius: 2vh; font-size: 5vh; width: max-content; padding: 2vh; top: 0; left: 50%; transform: translateX(-50%); position: absolute; z-index: 90; word-break: keep-all; opacity: 0%;">
+            高中生谈恋爱是<span style="color: var(--red);">利大于弊</span>?还是<span style="color: var(--blue);">弊大于利</span>?</div>
+        <div id="event"
+            style="color: black; background-color: white; border-style: solid; border-color: gray; border-width: 0.3vh; border-radius: 2vh; font-size: 5vh; width: max-content; padding: 1vh; top: 15vh; left: 50%; transform: translateX(-50%); position: absolute; z-index: 90; word-break: keep-all; opacity: 0%;">
+            ＸＸＸＸ</div>
+        <div
+            style="z-index: 100; bottom: 0; right: 0; position: absolute; background-color: #0005; color: white; font-size: 3vh;">
+            作者：温予乐(Pi圆周率)</div>
+        <div id="left" style="height: 100vh; width: 50vw; top: 0; position: absolute;">
+            <div id="left-job"
+                style="color: white; font-size: 10vh; top: 80%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                正方Ｘ辩
+            </div>
+            <div id="left-person"
+                style="color: white; font-size: 30vh; top: 50%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                ＸＸＸ
+            </div>
+            <div id="left-big-timer"
+                style="color: white; font-size: 25vh; top: 50%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                X:XX
+            </div>
+            <div id="left-fight-timer"
+                style="color: white; font-size: 25vh; top: 60%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                X:XX
+            </div>
+            <div id="left-total-timer"
+                style="color: white; font-size: 5vh; top: 30%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                X:XX
+            </div>
+            <div
+                style="color: black; background-color: white; border-color: gray; border-width: 1vh; border-top-right-radius: 2vh; border-bottom-right-radius: 2vh; font-size: 5vh; width: fit-content; padding: 2vh; top: 50%; left: 0vh; transform: translateY(-50%); position: absolute;">
+                正<br><br>方</div>
+        </div>
+        <div id="right" style="height: 100vh; width: 50vw; top: 0; position: absolute;">
+            <div id="right-fight-timer"
+                style="color: white; font-size: 25vh; top: 60%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                X:XX
+            </div>
+            <div id="right-total-timer"
+                style="color: white; font-size: 5vh; top: 30%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                X:XX
+            </div>
+            <div id="right-big-timer"
+                style="color: white; font-size: 25vh; top: 50%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                X:XX
+            </div>
+            <div id="right-job"
+                style="color: white; font-size: 10vh; top: 80%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                反方Ｘ辩
+            </div>
+            <div id="right-person"
+                style="color: white; font-size: 30vh; top: 50%; position: absolute; left: 50%; transform:translate(-50%,-50%); width: max-content; word-break: keep-all; opacity: 0%;">
+                ＸＸＸ
+            </div>
+            <div
+                style="color: black; background-color: white; border-color: gray; border-width: 1vh; border-top-left-radius: 2vh; border-bottom-left-radius: 2vh; font-size: 5vh; width: fit-content; padding: 2vh; top: 50%; right: 0vh; transform: translateY(-50%); position: absolute;">
+                反<br><br>方</div>
+        </div>
+    </main>
+</body>
+<script>
+    const music = new Audio("[颁奖音乐]万宝路进行曲.mp3")
+    music.load()
+    music.loop = true
+    document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+    document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+    document.getElementById("title-big").animate([{ opacity: "0%" }, { opacity: "100%" }], { duration: 500, fill: "forwards" })
+    const slides = [
+        [
+            () => {
+                document.getElementById("event").innerText = "辩手介绍"
+                document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("headline").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-person").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-job").innerText = "正方一辩"
+                        document.getElementById("left-person").innerText = "谢翊飞"
+                        document.getElementById("title-big").style.zIndex = -10
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-person").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("title-big").style.zIndex = 99
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("headline").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").innerText = "正方二辩"
+                        document.getElementById("left-person").innerText = "章嘉辉"
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").innerText = "正方一辩"
+                        document.getElementById("left-person").innerText = "谢翊飞"
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").innerText = "正方三辩"
+                        document.getElementById("left-person").innerText = "谢意效"
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").innerText = "正方二辩"
+                        document.getElementById("left-person").innerText = "章嘉辉"
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").innerText = "正方四辩"
+                        document.getElementById("left-person").innerText = "胡悦文"
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").innerText = "正方三辩"
+                        document.getElementById("left-person").innerText = "谢意效"
+                        document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("right-job").innerText = "反方一辩"
+                document.getElementById("right-person").innerText = "张艺涵"
+                document.getElementById("right-job").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-person").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-job").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-person").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+                document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                document.getElementById("left-job").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-person").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-job").innerText = "反方二辩"
+                        document.getElementById("right-person").innerText = "李彦希"
+                        document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-job").innerText = "反方一辩"
+                        document.getElementById("right-person").innerText = "张艺涵"
+                        document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-job").innerText = "反方三辩"
+                        document.getElementById("right-person").innerText = "陈飞扬"
+                        document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-job").innerText = "反方二辩"
+                        document.getElementById("right-person").innerText = "李彦希"
+                        document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-job").innerText = "反方四辩"
+                        document.getElementById("right-person").innerText = "周振兴"
+                        document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-job").innerText = "反方三辩"
+                        document.getElementById("right-person").innerText = "陈飞扬"
+                        document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ], [
+            () => {
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("intro").animate([{}, { top: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-job").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-person").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("intro").animate([{}, { top: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "辩手介绍"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-job").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-person").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("intro").animate([{}, { top: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "立论陈词"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        clocks[0].check()
+                        document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[0].stop()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("intro").animate([{}, { top: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[0].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[0].stop()
+                clocks[1].check()
+                document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[1].stop()
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[1].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[1].stop()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "正方二辩攻辩"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        clocks[2].check()
+                        clocks[3].check()
+                        clocks[20].check()
+                        document.getElementById("left-total-timer").style.color = counters[0] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[2].stop()
+                clocks[3].stop()
+                clocks[20].stop()
+                counters[1] -= counters[1] % 2
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("event").innerText = "立论陈词"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        clocks[1].check()
+                        document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[1] += 1
+                switch (counters[1] % 4) {
+                    case 1:
+                        clocks[2].start(() => {
+                            clocks[2].stop()
+                            clocks[2].reset()
+                            clocks[20].stop()
+                            counters[1] += 1
+                        })
+                        clocks[20].start()
+                        counters[0] += 1
+                        break;
+                    case 2:
+                        clocks[2].stop()
+                        clocks[2].reset()
+                        clocks[20].stop()
+                        break
+                    case 3:
+                        clocks[3].start(() => {
+                            clocks[3].stop()
+                            clocks[3].reset()
+                            clocks[20].stop()
+                            counters[1] += 1
+                        })
+                        clocks[20].start()
+                        break
+                    case 0:
+                        clocks[3].stop()
+                        clocks[3].reset()
+                        clocks[20].stop()
+                        break
+                    default:
+                        break;
+                }
+                document.getElementById("left-total-timer").style.color = counters[0] >= 3 ? "#0F0" : "#FF0"
+            }
+        ],
+        [
+            () => {
+                counters[1] -= counters[1] % 2
+                clocks[2].stop()
+                clocks[3].stop()
+                clocks[20].stop()
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "反方二辩攻辩"
+                        clocks[4].check()
+                        clocks[5].check()
+                        clocks[21].check()
+                        document.getElementById("right-total-timer").style.color = counters[2] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[3] -= counters[3] % 2
+                clocks[4].stop()
+                clocks[5].stop()
+                clocks[21].stop()
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "正方二辩攻辩"
+                        clocks[2].check()
+                        clocks[3].check()
+                        clocks[20].check()
+                        document.getElementById("left-total-timer").style.color = counters[0] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[3] += 1
+                switch (counters[3] % 4) {
+                    case 1:
+                        clocks[4].start(() => {
+                            clocks[4].stop()
+                            clocks[4].reset()
+                            clocks[21].stop()
+                            counters[3] += 1
+                        })
+                        clocks[21].start()
+                        counters[2] += 1
+                        break;
+                    case 2:
+                        clocks[4].stop()
+                        clocks[4].reset()
+                        clocks[21].stop()
+                        break
+                    case 3:
+                        clocks[5].start(() => {
+                            clocks[5].stop()
+                            clocks[5].reset()
+                            clocks[21].stop()
+                            counters[3] += 1
+                        })
+                        clocks[21].start()
+                        break
+                    case 0:
+                        clocks[5].stop()
+                        clocks[5].reset()
+                        clocks[21].stop()
+                        break
+                    default:
+                        break;
+                }
+                document.getElementById("right-total-timer").style.color = counters[2] >= 3 ? "#0F0" : "#FF0"
+            }
+        ],
+        [
+            () => {
+                counters[3] -= counters[3] % 2
+                clocks[4].stop()
+                clocks[5].stop()
+                clocks[21].stop()
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "正方三辩攻辩"
+                        clocks[6].check()
+                        clocks[7].check()
+                        clocks[22].check()
+                        document.getElementById("left-total-timer").style.color = counters[4] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[5] -= counters[5] % 2
+                clocks[6].stop()
+                clocks[7].stop()
+                clocks[22].stop()
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "反方二辩攻辩"
+                        clocks[4].check()
+                        clocks[5].check()
+                        clocks[21].check()
+                        document.getElementById("right-total-timer").style.color = counters[2] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[5] += 1
+                switch (counters[5] % 4) {
+                    case 1:
+                        clocks[6].start(() => {
+                            clocks[6].stop()
+                            clocks[6].reset()
+                            clocks[22].stop()
+                            counters[5] += 1
+                        })
+                        clocks[22].start()
+                        counters[4] += 1
+                        break;
+                    case 2:
+                        clocks[6].stop()
+                        clocks[6].reset()
+                        clocks[22].stop()
+                        break
+                    case 3:
+                        clocks[7].start(() => {
+                            clocks[7].stop()
+                            clocks[7].reset()
+                            clocks[22].stop()
+                            counters[5] += 1
+                        })
+                        clocks[22].start()
+                        break
+                    case 0:
+                        clocks[7].stop()
+                        clocks[7].reset()
+                        clocks[22].stop()
+                        break
+                    default:
+                        break;
+                }
+                document.getElementById("left-total-timer").style.color = counters[4] >= 3 ? "#0F0" : "#FF0"
+            }
+        ],
+        [
+            () => {
+                clocks[6].stop()
+                clocks[7].stop()
+                clocks[22].stop()
+                counters[5] -= counters[5] % 2
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "反方三辩攻辩"
+                        clocks[8].check()
+                        clocks[9].check()
+                        clocks[23].check()
+                        document.getElementById("right-total-timer").style.color = counters[6] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[8].stop()
+                clocks[9].stop()
+                clocks[23].stop()
+                counters[7] -= counters[7] % 2
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "正方三辩攻辩"
+                        clocks[6].check()
+                        clocks[7].check()
+                        clocks[22].check()
+                        document.getElementById("left-total-timer").style.color = counters[4] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[7] += 1
+                switch (counters[7] % 4) {
+                    case 1:
+                        clocks[8].start(() => {
+                            clocks[8].stop()
+                            clocks[8].reset()
+                            clocks[23].stop()
+                            counters[7] += 1
+                        })
+                        clocks[23].start()
+                        counters[6] += 1
+                        break;
+                    case 2:
+                        clocks[8].stop()
+                        clocks[8].reset()
+                        clocks[23].stop()
+                        break
+                    case 3:
+                        clocks[9].start(() => {
+                            clocks[9].stop()
+                            clocks[9].reset()
+                            clocks[23].stop()
+                            counters[7] += 1
+                        })
+                        clocks[23].start()
+                        break
+                    case 0:
+                        clocks[9].stop()
+                        clocks[9].reset()
+                        clocks[23].stop()
+                        break
+                    default:
+                        break;
+                }
+                document.getElementById("right-total-timer").style.color = counters[6] >= 3 ? "#0F0" : "#FF0"
+            }
+        ],
+        [
+            () => {
+                clocks[8].stop()
+                clocks[9].stop()
+                clocks[23].stop()
+                counters[7] -= counters[7] % 2
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw", width: "100vw" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "攻辩小结"
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, fill: "forwards", easing: "ease-in-out" })
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, fill: "forwards", easing: "ease-in-out" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, fill: "forwards", easing: "ease-in-out" })
+                        clocks[10].check()
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                        document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                    })
+            },
+            () => {
+                clocks[10].stop()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "反方三辩攻辩"
+                        clocks[8].check()
+                        clocks[9].check()
+                        clocks[23].check()
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, fill: "forwards", easing: "ease-in-out" })
+                        document.getElementById("right-total-timer").style.color = counters[6] >= 3 ? "#0F0" : "#FF0"
+                        document.getElementById("right-total-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right-fight-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[10].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[10].stop()
+                clocks[11].check()
+                document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[11].stop()
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[11].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[11].stop()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "自由辩论"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        clocks[12].check()
+                        clocks[13].check()
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[12].stop()
+                clocks[13].stop()
+                counters[8] -= 1
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "攻辩小结"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        clocks[11].check()
+                        document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                counters[8] += 1
+                switch (counters[8] % 2) {
+                    case 1:
+                        clocks[13].stop()
+                        clocks[12].start()
+                        break;
+                    case 0:
+                        clocks[12].stop()
+                        clocks[13].start()
+                        break
+                    default:
+                        break;
+                }
+            }
+        ],
+        [
+            () => {
+                clocks[12].stop()
+                clocks[13].stop()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "总结陈词"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        clocks[18].check()
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[18].stop()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "自由辩论"
+                        clocks[12].check()
+                        clocks[13].check()
+                        document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[18].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[18].stop()
+                clocks[19].check()
+                document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[19].stop()
+                clocks[18].check()
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[19].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[15].stop()
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "观众提问"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+                clocks[16].check()
+            },
+            () => {
+                clocks[16].stop()
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                clocks[19].check()
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event").innerText = "总结陈词"
+                        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                        document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                clocks[16].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[16].stop()
+                clocks[17].check()
+                document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[17].stop()
+                clocks[16].check()
+                document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[17].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[17].stop()
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                    })
+                clocks[14].check()
+                document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[14].stop()
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                clocks[17].check()
+                document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[14].toggle()
+            }
+        ],
+        [
+            () => {
+                clocks[14].stop()
+                clocks[15].check()
+                document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "-100vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "0vw" }, { left: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[15].stop()
+                clocks[14].check()
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "-100vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "0vw" }, { right: "-100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[15].toggle()
+            }
+        ],
+        [
+            () => {
+                document.getElementById("event-big").innerText = "评委点评"
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("event-big").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{}, { left: "0vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{}, { right: "0vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => {
+                clocks[15].check()
+                document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("event-big").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{}, { left: "-100vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{}, { right: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-big-timer").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            },
+            () => { }
+        ],
+        [
+            () => {
+                document.getElementById("event-big").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event-big").innerText = "颁奖仪式"
+                        document.getElementById("event-big").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                document.getElementById("event-big").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    .finished.then(() => {
+                        document.getElementById("event-big").innerText = "评委点评"
+                        document.getElementById("event-big").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                    })
+            },
+            () => {
+                if (music.paused) {
+                    music.play()
+                } else {
+                    music.pause()
+                }
+            }
+        ]
+    ]
+    function testPage() {
+        document.getElementById("event").innerText = "测试页"
+        document.getElementById("event").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+        document.getElementById("left").animate([{ left: "0vw" }, { left: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+        document.getElementById("headline").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            .finished.then(() => {
+                clocks[24].check()
+                document.getElementById("left-big-timer").animate([{}, { opacity: "100%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("title-big").style.zIndex = -10
+                document.getElementById("left").animate([{}, { left: "0vw", width: "100vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            })
+        document.getElementById("right").animate([{ right: "0vw" }, { right: "-50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+    }
+    function reset() {
+        document.getElementById("left").animate([{}, { left: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+        document.getElementById("right").animate([{}, { right: "-50vw", width: "50vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            .finished.then(() => {
+                document.getElementById("title-big").style.zIndex = 99
+                document.getElementById("left-job").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-job").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-job").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-total-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-big-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-fight-timer").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left-person").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right-person").animate([{}, { opacity: "0%" }], { duration: 0, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("event").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("event-big").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("intro").animate([{}, { top: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("headline").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("left").animate([{ left: "-50vw" }, { left: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+                document.getElementById("right").animate([{ right: "-50vw" }, { right: "0vw" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+            })
+    }
+    document.body.addEventListener("contextmenu", (e) => { e.preventDefault(); })
+    var count = -1
+    var inTest = false
+    var on_change = false
+    var last_timeout = undefined
+    document.body.addEventListener("wheel", (event) => {
+        try {
+            music.volume += event.deltaY / 1000
+            text_content = "音量：" + (music.volume * 100).toFixed(2) + "%"
+        } catch {
+            text_content = "达到最大/最小音量"
+        }
+        document.getElementById("vol").innerText = text_content
+        if (on_change) {
+            clearTimeout(last_timeout)
+        } else {
+            on_change = true
+            document.getElementById("vol").animate([{}, { opacity: "100%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+        }
+        last_timeout = setTimeout(() => {
+            on_change = false
+            document.getElementById("vol").animate([{}, { opacity: "0%" }], { duration: 500, easing: "ease-in-out", fill: "forwards" })
+        }, 500)
+    })
+    document.body.addEventListener("mousedown", (event) => {
+        button = event.button
+        event.preventDefault()
+        if (inTest && button === 1) {
+            clocks[24].toggle()
+            return
+        }
+        if (count === -1 && button === 2) {
+            if (inTest) { return }
+            inTest = true
+            testPage()
+            return
+        }
+        if (inTest && button === 0) {
+            inTest = false
+            reset()
+            return
+        }
+        if (button === 0) {
+            count += 1
+            backwards = 0
+        } else if (button === 2) {
+            count -= 1
+            backwards = 1
+        }
+        if (button !== 1) {
+            try {
+                console.log(count, backwards)
+                f = slides[count + backwards][backwards]
+            } catch {
+                console.log("ERR, move back")
+                count = -1
+                backwards = 1
+                reset()
+                f = () => { }
+            }
+            f()
+        } else {
+            try {
+                f = slides[count][2]
+            } catch {
+                f = () => { }
+            }
+            f()
+        }
+    })
+    const shortTip = new Audio("shortTip.mp3")
+    shortTip.load()
+    shortTip.volume = 0.05
+    const longTip = new Audio("longTip.mp3")
+    longTip.load()
+    class Clock {
+        constructor(count, tip, bindId, noTip) {
+            this.remain = this.count = count * 1000
+            this.tip = (tip + 1) * 1000
+            this.timing = false
+            this.tipped = false
+            this.callOnEnd = () => { }
+            this.ended = false
+            this.bind = bindId !== undefined ? document.getElementById(bindId) : undefined
+            this.check()
+            if (this.bind) {
+                this.bind.style.border = "0.5vh dashed #FF0"
+                this.bind.style.padding = "2vh"
+                this.bind.style.borderRadius = "2vh"
+            }
+            this.noTip = noTip || false
+        }
+        start(callOnEnd) {
+            if (this.timing || this.ended) { return false }
+            this.timing = true
+            this.endsAt = new Date().getTime() + this.remain
+            this.invId = setInterval(() => { this.check() }, 100)
+            if (this.bind) {
+                this.bind.style.border = "0.5vh solid #0F0"
+            }
+            this.callOnEnd = callOnEnd || this.callOnEnd
+            return true
+        }
+        stop() {
+            if (!this.timing) { return false }
+            this.timing = false
+            this.remain = this.endsAt - new Date().getTime()
+            clearInterval(this.invId)
+            if (this.bind) {
+                this.bind.style.border = "0.5vh dashed #FF0"
+                this.bind.innerText = this.get()
+            }
+        }
+        toggle() {
+            return this.ended ? this.reset() : (this.timing ? this.stop() : this.start())
+        }
+        get() {
+            if (!this.timing) {
+                var remain = this.remain
+            } else {
+                var remain = this.endsAt - new Date().getTime()
+            }
+            var minute = Math.max(Math.floor(remain / (1000 * 60)), 0)
+            var second = Math.max(Math.floor(remain / 1000) % 60, 0)
+            return minute + (((Math.floor(remain) % 1000 > 500) || (!this.timing)) ? ":" : " ") + (second < 10 ? ("0" + second) : second)
+        }
+        reset() {
+            if (this.timing) { this.stop() }
+            this.remain = this.count
+            this.tipped = false
+            this.ended = false
+            this.callOnEnd = () => { }
+            this.check()
+        }
+        check() {
+            if (this.timing) {
+                if ((!this.tipped) && (this.tip > 0) && ((this.endsAt - new Date().getTime()) < this.tip)) {
+                    this.doTip()
+                    this.tipped = true
+                }
+                if ((!this.ended) && (new Date().getTime() > this.endsAt)) {
+                    this.doEnd()
+                    this.ended = true
+                    this.stop()
+                }
+            }
+            if (this.bind) {
+                this.bind.innerText = this.get()
+            }
+        }
+        doTip() {
+            if (this.noTip) { return }
+            console.log("TIP")
+            if (this.bind) {
+                this.bind.animate([{ textShadow: "0 0 0vh yellow" }, { textShadow: "0 0 3vh yellow" }],
+                    { duration: 100, direction: "alternate", iterations: 4 })
+            }
+            shortTip.play()
+        }
+        doEnd() {
+            if (this.noTip) { return }
+            console.log("END")
+            if (this.bind) {
+                this.bind.animate([{ color: "white" }, { color: "red" }],
+                    { duration: 100, direction: "alternate", iterations: 4 })
+            }
+            setTimeout(() => { this.callOnEnd() }, 0)
+            longTip.play()
+        }
+    }
+    clocks = [
+        new Clock(2 * 60 + 30, 30, "left-big-timer"), //! 0 Left 立论陈词
+        new Clock(2 * 60 + 30, 30, "right-big-timer"), //! 1 Right 立论陈词
+        new Clock(15, -1, "left-fight-timer"), //! 2 Left 正二攻
+        new Clock(20, -1, "right-big-timer"), //! 3 Right 正二攻
+        new Clock(15, -1, "right-fight-timer"), //! 4 Right 反二攻
+        new Clock(20, -1, "left-big-timer"), //! 5 Left 反二攻
+        new Clock(15, -1, "left-fight-timer"), //! 6 Left 正三攻
+        new Clock(20, -1, "right-big-timer"), //! 7 Right 正三攻
+        new Clock(15, -1, "right-fight-timer"), //! 8 Right 反三攻
+        new Clock(20, -1, "left-big-timer"), //! 9 Left 反三攻
+        new Clock(1 * 60 + 30, 10, "left-big-timer"), //! 10 Left 攻辩小结
+        new Clock(1 * 60 + 30, 10, "right-big-timer"), //! 11 Right 攻辩小结
+        new Clock(4 * 60, 30, "left-big-timer"), //! 12 Left 自由辩论
+        new Clock(4 * 60, 30, "right-big-timer"), //! 13 Right 自由辩论
+        new Clock(1 * 60, 10, "left-big-timer"), //! 14 Left 观众提问
+        new Clock(1 * 60, 10, "right-big-timer"), //! 15 Right 观众提问
+        new Clock(1 * 60, 10, "left-big-timer"), //! 16 Left 观众提问
+        new Clock(1 * 60, 10, "right-big-timer"), //! 17 Right 观众提问
+        new Clock(3 * 60, 30, "left-big-timer"), //! 18 Left 总结陈词
+        new Clock(3 * 60, 30, "right-big-timer"), //! 19 Right 总结陈词
+        new Clock(1 * 60 + 45, 30, "left-total-timer", true), //! 20 Left 正二攻辩
+        new Clock(1 * 60 + 45, 30, "right-total-timer", true), //! 21 Right 反二攻辩
+        new Clock(1 * 60 + 45, 30, "left-total-timer", true), //! 22 Left 正三攻辩
+        new Clock(1 * 60 + 45, 30, "right-total-timer", true), //! 23 Right 反三攻辩
+        new Clock(10, 3, "left-big-timer") //! 24 Test
+    ]
+    counters = [
+        0, //! 0 正二攻计数
+        0, //! 1 正二攻功能
+        0, //! 2 反二攻计数
+        0, //! 3 反二攻功能
+        0, //! 4 正三攻计数
+        0, //! 5 正三攻功能
+        0, //! 6 反三攻计数
+        0, //! 7 反三攻功能
+        0, //! 8 自由辩论
+    ]
+</script>
+
+</html>
